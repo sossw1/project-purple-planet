@@ -6,7 +6,7 @@ const helmet = require('helmet');
 const path = require('path');
 const secret = process.env.Session_Secret;
 const db = require('./models');
-const PORT = process.env.PORT || 3;
+const PORT = process.env.PORT || 3000;
 
 const app = express();
 app.use(helmet());
