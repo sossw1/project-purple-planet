@@ -4,9 +4,9 @@ const exphbs = require('express-handlebars');
 const passport = require('./config/passport');
 const helmet = require('helmet');
 const path = require('path');
-const secret = 'keyboard cat';
+const secret = process.env.Session_Secret;
 const db = require('./models');
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3;
 
 const app = express();
 app.use(helmet());
