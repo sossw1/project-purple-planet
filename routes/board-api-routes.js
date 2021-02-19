@@ -23,7 +23,7 @@ module.exports = (app) => {
   });
 
   // PUT changes to a board name
-  app.put('/api/boards/:id', function (req) {
+  app.put('/api/boards/:id', function (req, res) {
     db.Board.update(
       {
         name: req.body.name,
@@ -33,7 +33,7 @@ module.exports = (app) => {
           id: req.params.id,
         },
       }
-    );
+    ).then((dbBoard) => res.json(dbBoard));
   });
 
   // DELETE a board
