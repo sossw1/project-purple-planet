@@ -1,4 +1,4 @@
-const db = require('../models/task');
+const db = require('../models');
 
 module.exports = (app) => {
 
@@ -12,8 +12,15 @@ module.exports = (app) => {
   });
 
   // POST a new task
-  app.post('/api/boards', function (req, res) {
-    db.Post.create(req.body).then((dbTask) => res.json(dbTask));
+  app.post('/api/tasks', function (req, res) {
+    db.Task.create(
+      {
+        BoardId: req.body.BoardId,
+        title: req.body.title,
+        body: req.body.body,
+        status: req.body.status
+      }
+    ).then((dbTask) => res.json(dbTask));
   });
 
   // PUT updates to a task (title/body/status)
