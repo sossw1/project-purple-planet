@@ -1,7 +1,6 @@
 const db = require('../models');
 
 module.exports = (app) => {
-
   // GET all boards belonging to the user
   app.get('/api/boards', function (req, res) {
     db.Board.findAll({
@@ -14,14 +13,21 @@ module.exports = (app) => {
   // POST a new board
   app.post('/api/boards', function (req, res) {
     db.Board.create({
-      name: req.body.name
-    }).then((dbBoard) => res.json(dbBoard));
+      name: req.body.name,
+      UserId: req.user.id,
+    })
+      .then((dbBoard) => res.json(dbBoard))
+      .catch((error) => {
+        if (error) throw error;
+      });
   });
 
   // PUT changes to a board name
   app.put('/api/boards/:id', function (req) {
     db.Board.update(
-      { name: req.body.name },
+      {
+        name: req.body.name,
+      },
       {
         where: {
           id: req.params.id,
@@ -38,5 +44,4 @@ module.exports = (app) => {
       },
     }).then((dbBoard) => res.json(dbBoard));
   });
-
 };
