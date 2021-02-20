@@ -4,6 +4,8 @@
 // Requiring our custom middleware for checking if a user is logged in
 let isAuthenticated = require('../config/middleware/isAuthenticated');
 
+const db = require('../models');
+
 module.exports = function(app) {
 
   app.get('/', function(req, res) {
@@ -37,5 +39,24 @@ module.exports = function(app) {
 
     res.render('home', member);
   });
+
+  app.get('/boards', isAuthenticated, function(req, res) {
+    if (req.user) {
+      db.Board.findAll({
+        where: {
+          UserId: req.user.id,
+        },
+      }).then((dbBoard) => {
+        let hbsObject = {
+          boards: dbBoard
+        };
+        // console.log(hbsObject.boards[0].dataValues);
+        res.render('boards', hbsObject);
+      });
+    } else {
+      res.render('index');
+    }
+  });
+
 
 };
