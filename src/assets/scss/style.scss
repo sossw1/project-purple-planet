@@ -1,0 +1,32 @@
+form.signup,
+form.login {
+  margin-top: 50px;
+}
+
+.no-padding {
+  padding: 0 !important;
+}
+
+.splash-btn {
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+.material-icons{
+  display: inline-flex;
+  vertical-align: top;
+}
+
+.start-splash-section {
+  overflow: hidden;
+  height:450px;
+  .splash-image-container {
+    width: 100%;
+    max-width: 740px;
+    height:720px;
+  
+    .splash-image {
+      width: 100%;
+    }
+  }
+}
