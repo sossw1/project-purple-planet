@@ -62,4 +62,18 @@ module.exports = function (app) {
     });
   });
 
+  app.get('/boards/:id/tasks', isAuthenticated, function (req, res) {
+    db.Task.findAll({
+      where: {
+        BoardId: req.params.id,
+      },
+    }).then((dbTask) => {
+      let hbsObject = {
+        member: req.user,
+        tasks: dbTask
+      };
+      res.render('tasks', hbsObject);
+    });
+  });
+
 };
