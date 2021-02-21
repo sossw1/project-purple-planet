@@ -40,7 +40,7 @@ module.exports = function(app) {
     res.render('home', member);
   });
 
-  app.get('/boards', isAuthenticated, function(req, res) {
+  app.get('/boards', isAuthenticated, function (req, res) {
     if (req.user) {
       db.Board.findAll({
         where: {
@@ -50,11 +50,8 @@ module.exports = function(app) {
         let hbsObject = {
           boards: dbBoard
         };
-        // console.log(hbsObject.boards[0].dataValues);
         res.render('boards', hbsObject);
       });
-    } else {
-      res.render('index');
     }
   });
 
