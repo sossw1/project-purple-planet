@@ -55,10 +55,11 @@ module.exports = function (app) {
       },
     }).then((dbBoard) => {
       let hbsObject = {
+        member: req.user,
         boards: dbBoard
       };
       res.render('boards', hbsObject);
     });
   });
-  
+
 };
