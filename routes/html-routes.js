@@ -49,19 +49,16 @@ module.exports = function (app) {
   });
 
   app.get('/boards', isAuthenticated, function (req, res) {
-    if (req.user) {
-      db.Board.findAll({
-        where: {
-          UserId: req.user.id,
-        },
-      }).then((dbBoard) => {
-        let hbsObject = {
-          boards: dbBoard
-        };
-        res.render('boards', hbsObject);
-      });
-    }
+    db.Board.findAll({
+      where: {
+        UserId: req.user.id,
+      },
+    }).then((dbBoard) => {
+      let hbsObject = {
+        boards: dbBoard
+      };
+      res.render('boards', hbsObject);
+    });
   });
-
-
+  
 };
