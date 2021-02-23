@@ -18,7 +18,7 @@ const connection = {
 };
 
 if (process.env.JAWSDB_MARIA_URL) {
-  sequelize = new Sequelize(process.env.JAWSDB_URL || connection);
+  sequelize = new Sequelize(process.env.JAWSDB_MARIA_URL || connection);
 } else if (config.use_env_variable) {
   sequelize = new Sequelize(process.env[config.use_env_variable]);
 } else {
