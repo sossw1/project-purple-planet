@@ -33,7 +33,7 @@ $(document).ready(function () {
       UserId: UserId
     })
       .then(function () {
-        window.location.replace('/');
+        window.location.replace('/home');
         // If there's an error, log the error
       })
       .catch(function (err) {
@@ -47,7 +47,7 @@ $(document).ready(function () {
       method: 'DELETE',
     }).then(function (response) {
       if (response.ok) {
-        location.replace('/');
+        location.replace('/home');
       }
     });
   });
