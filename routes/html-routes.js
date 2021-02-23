@@ -48,20 +48,6 @@ module.exports = function (app) {
     });
   });
 
-  app.get('/boards', isAuthenticated, function (req, res) {
-    db.Board.findAll({
-      where: {
-        UserId: req.user.id,
-      },
-    }).then((dbBoard) => {
-      let hbsObject = {
-        member: req.user,
-        boards: dbBoard
-      };
-      res.render('boards', hbsObject);
-    });
-  });
-
   app.get('/boards/:id/tasks', isAuthenticated, function (req, res) {
     db.Task.findAll({
       where: {
