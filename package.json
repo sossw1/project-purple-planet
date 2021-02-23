@@ -12,7 +12,8 @@
     "lint": "eslint './**/*.js' --quiet",
     "start": "node app",
     "test": "echo \"Warning: no test specified\" && exit 0",
-    "watch": "nodemon app"
+    "watch": "nodemon app",
+    "heroku-postbuild": "gulp compile"
   },
   "repository": {
     "type": "git",
