@@ -3,6 +3,19 @@ form.login {
   margin-top: 50px;
 }
 
+.no-boards {
+  user-select: none;
+}
+
+.login-box,
+.signup-box {
+  height: 100%;
+}
+
+.fill-window {
+  height: 100vh;
+}
+
 nav {
   .brand-logo {
     display: flex;
