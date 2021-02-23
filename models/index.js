@@ -14,11 +14,11 @@ const connection = {
   password: process.env.DB_PASS,
   database: process.env.DB_NAME,
   host: process.env.DB_HOST,
-  dialect: "mysql",
+  dialect: 'mysql',
 };
 
 if (process.env.JAWSDB_MARIA_URL) {
-  sequelize = new Sequelize(process.env.JAWSDB_URL || connection)
+  sequelize = new Sequelize(process.env.JAWSDB_URL || connection);
 } else if (config.use_env_variable) {
   sequelize = new Sequelize(process.env[config.use_env_variable]);
 } else {
