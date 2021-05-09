@@ -38,9 +38,9 @@ A simple, clean and lightweight personal project and task manager.
 
 **Project Purple Planet** is a simple, clean and lightweight personal project and task manager built using NodeJS, Express, Materialize, MySQL, HandlebarsJS and Sequelize.
 
-## Screenshots
+## Screenshot
 
-**Coming Soon**
+![Screenshot](src/assets/imgs/screenshot.png)
 
 ## Dependencies
 
